@@ -40,6 +40,7 @@ function App() {
       const updatedPcbContent = content.trim().startsWith("(pcb") ? content : dsnPcbFile
 
       if (updatedSessionContent && updatedPcbContent) {
+        console.log("Processing DSN session and PCB files...")
         const dsnPcb = parseDsnToDsnJson(updatedPcbContent) as DsnPcb
         const dsnSession = parseDsnToDsnJson(updatedSessionContent) as DsnSession
         setCircuitJson(convertDsnSessionToCircuitJson(dsnPcb, dsnSession))
